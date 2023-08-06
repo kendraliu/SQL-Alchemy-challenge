@@ -74,42 +74,22 @@ def temp():
 
 @app.route("/api/v1.0/<start>/<end>")
 def timeRange(start, end):
-    startDate = dt.strptime(start, "%Y-%m-%d")
-    endDate = dt.strptime(end, "%Y-%m-%d")
+    startDate = dt.strptime(start, "%Y%m%d")
+    endDate = dt.strptime(end, "%Y%m%d")
 
     session = Session(engine)
-    tempData = session.query(measurement.date, measurement.tobs).filter(measurement.station == "USC00519281").filter(measurement.date>=startDate, measurement.date<=endDate).all()
+    tempData = session.query(func.min(measurement.tobs), func.max(measurement.tobs), func.avg(measurement.tobs)).filter(measurement.station == "USC00519281").filter(measurement.date>=startDate, measurement.date<=endDate).all()
     session.close()
-    
+
     api=[]
     for row in tempData:
         dict={}
-        dict["Date"] = row.date
-        dict["Temperature"] = row.tobs
+        dict["Lowest Temperature"] = row[0]
+        dict["Highes Temperature"] = row[1]
+        dict["Avg Temperature"] = row[2]
         api.append(dict)
     return(api)
 
 if __name__ == '__main__':
     app.run(debug=True)
 
-# reflect an existing database into a new model
-
-# reflect the tables
-
-
-# Save references to each table
-
-
-# Create our session (link) from Python to the DB
-
-
-#################################################
-# Flask Setup
-#################################################
-
-
-
-
-#################################################
-# Flask Routes
-#################################################
