@@ -11,18 +11,18 @@ This project looked at the rain and temperature data in Hawaii focusing the late
 ### API
 To run the API, clone the repo and run [app.py](app.py).
 
-Access the server, which should look something like http://127.0.0.1:5000.
+Access the server, which should look something like `http://127.0.0.1:5000`.
 
 Routes:
-- [/api/v1.0/precipitation](http://127.0.0.1:5000/api/v1.0/precipitation): 12-month precipitation in Hawaii
+- [`/api/v1.0/precipitation`](http://127.0.0.1:5000/api/v1.0/precipitation): 12-month precipitation in Hawaii
 
-- [/api/v1.0/stations](http://127.0.0.1:5000/api/v1.0/stations): all the stations that contribut to the data
+- [`/api/v1.0/stations`](http://127.0.0.1:5000/api/v1.0/stations): all the stations that contribut to the data
 
-- [/api/v1.0/tobs](http://127.0.0.1:5000/api/v1.0/tobs): temperature frequency in Hawaii in 12 months
+- [`/api/v1.0/tobs`](http://127.0.0.1:5000/api/v1.0/tobs): temperature frequency in Hawaii in 12 months
 
 * for temperature stats for a certain period of time, use:
 
-    * [/api/v1.0/{StartDate}]: from the specified date to the latest date available
+    * `/api/v1.0/{StartDate}`: from the specified date to the latest date available
 
     * `/api/v1.0/{StartDate}/{EndDate}`: within the specified period
 
