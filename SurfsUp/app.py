@@ -22,11 +22,13 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     return(
-        f"Available Routes:<br/>"
-        f"/api/v1.0/precipitation<br/>"
-        f"/api/v1.0/stations<br/>"
-        f"/api/v1.0/tobs<br/>"
-        f"/api/v1.0/<start>/<end> input date formate:YYYYMMDD"
+        f"Available Routes:<br/>------------------------------------------<br/>"
+        f"/api/v1.0/precipitation<br/><br/>"
+        f"/api/v1.0/stations<br/><br/>"
+        f"/api/v1.0/tobs<br/><br/>"
+        f"/api/v1.0/[StartDate]*<br/><br/>"
+        f"/api/v1.0/[StartDate]*/[EndDate]*<br/><br/><br/>* input date format:YYYYMMDD<br/>"
+        f"** date range: 2010/01/01 - 2017/08/23"
     )
 
 @app.route("/api/v1.0/precipitation")
@@ -80,7 +82,23 @@ def timeRange(start, end):
     session = Session(engine)
     tempData = session.query(func.min(measurement.tobs), func.max(measurement.tobs), func.avg(measurement.tobs)).filter(measurement.station == "USC00519281").filter(measurement.date>=startDate, measurement.date<=endDate).all()
     session.close()
+    api=[]
+    for row in tempData:
+        dict={}
+        dict["Lowest Temperature"] = row[0]
+        dict["Highes Temperature"] = row[1]
+        dict["Avg Temperature"] = row[2]
+        api.append(dict)
+    return(api)
 
+@app.route("/api/v1.0/<start>")
+def timeAfter(start):
+    startDate = dt.strptime(start, "%Y%m%d")
+
+    session = Session(engine)
+    latestDay = session.query(func.max(measurement.date)).scalar()
+    tempData = session.query(func.min(measurement.tobs), func.max(measurement.tobs), func.avg(measurement.tobs)).filter(measurement.station == "USC00519281").filter(measurement.date>=startDate, measurement.date<=latestDay).all()
+    session.close()
     api=[]
     for row in tempData:
         dict={}
