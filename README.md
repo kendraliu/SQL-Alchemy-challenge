@@ -24,7 +24,7 @@ Routes:
 
     * `/api/v1.0/{StartDate}/{EndDate}`: within the specified period
 
-    * input date format:YYYYMMDD
-    * date range: 2010/01/01 - 2017/08/23
+        * input date format:YYYYMMDD
+        * date range: 2010/01/01 - 2017/08/23
 
 - `/api/v1.0/stations`: all the stations that contribut to the data
