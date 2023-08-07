@@ -10,18 +10,13 @@ This project looked at the rain and temperature data in Hawaii focusing the late
 
 ### API
 To run the API, clone the repo and run [app.py](app.py).
-
 Access the server, which should look something like http://127.0.0.1:5000.
 
 Routes:
 - /api/v1.0/precipitation
-
 - /api/v1.0/stations
-
 - /api/v1.0/tobs
-
-- /api/v1.0/<StartDate>
-
+- /api/v1.0/[StartDate]
 - /api/v1.0/[StartDate]/[EndDate]
 
 
