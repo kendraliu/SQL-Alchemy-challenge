@@ -14,7 +14,7 @@ To run the API, clone the repo and run [app.py](app.py).
 Access the server, which should look something like http://127.0.0.1:5000.
 
 Routes:
-- /api/v1.0/precipitation: 12-month precipitation in Hawaii
+- [/api/v1.0/precipitation](http://127.0.0.1:5000/api/v1.0/precipitation): 12-month precipitation in Hawaii
 
 - /api/v1.0/stations: all the stations that contribut to the data
 
