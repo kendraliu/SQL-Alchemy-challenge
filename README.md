@@ -1,4 +1,4 @@
-# SQL Alchemy challenge: climate analysis
+# Hawaii Climate Analysis with SQL Alchemy
 
 This project looked at the rain and temperature data in Hawaii focusing the latest one-year data. Original data consisted of data from 2010-01-01 to 2017-08-23.
 
