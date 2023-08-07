@@ -13,7 +13,7 @@ To run the API, clone the repo and run [app.py](app.py).
 
 Access the server, which should look something like `http://127.0.0.1:5000`.
 
-Routes:
+#### Availble Routes:
 - `/api/v1.0/precipitation`: daily precipitation in Hawaii from 2016/08/24 - 2017/08/23
 
 - `/api/v1.0/tobs`: temperature frequency in Hawaii from 2016/08/24 - 2017/08/23
@@ -25,6 +25,6 @@ Routes:
     * `/api/v1.0/{StartDate}/{EndDate}`: within the specified period
 
         * input date format:YYYYMMDD
-        * date range: 2010/01/01 - 2017/08/23
+        * available date range: 2010/01/01 - 2017/08/23
 
 - `/api/v1.0/stations`: all the stations that contribut to the data
