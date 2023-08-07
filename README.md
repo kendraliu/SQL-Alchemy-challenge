@@ -14,11 +14,9 @@ To run the API, clone the repo and run [app.py](app.py).
 Access the server, which should look something like `http://127.0.0.1:5000`.
 
 Routes:
-- `/api/v1.0/precipitation`: 12-month precipitation in Hawaii
+- `/api/v1.0/precipitation`: daily precipitation in Hawaii from 2016/08/24 - 2017/08/23
 
-- `/api/v1.0/stations`: all the stations that contribut to the data
-
-- `/api/v1.0/tobs`: temperature frequency in Hawaii in 12 months
+- `/api/v1.0/tobs`: temperature frequency in Hawaii from 2016/08/24 - 2017/08/23
 
 * for temperature stats for a certain period of time, use:
 
@@ -28,3 +26,5 @@ Routes:
 
     * input date format:YYYYMMDD
     * date range: 2010/01/01 - 2017/08/23
+
+- `/api/v1.0/stations`: all the stations that contribut to the data
